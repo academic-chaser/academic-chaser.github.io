@@ -32,20 +32,25 @@
             overflow: hidden;
         }
 
-        .game-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 50%);
-            animation: rotate 20s linear infinite;
-        }
+            .game-container::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 50%);
+                animation: rotate 20s linear infinite;
+            }
 
         @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .content {
@@ -69,6 +74,17 @@
         .game-area {
             margin: 30px 0;
         }
+
+        .logo-container {
+            position: absolute;
+            top: 10px; /* distance from top edge of the card */
+            right: 10px; /* distance from right edge of the card */
+        }
+
+            .logo-container img {
+                width: 150px; /* semi-small size */
+                height: auto;
+            }
 
         .score-board {
             display: flex;
@@ -107,9 +123,9 @@
             transition: transform 0.3s ease;
         }
 
-        .question-card:hover {
-            transform: translateY(-5px);
-        }
+            .question-card:hover {
+                transform: translateY(-5px);
+            }
 
         .question {
             font-size: 1.3em;
@@ -137,33 +153,46 @@
             backdrop-filter: blur(10px);
         }
 
-        .option:hover {
-            background: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.8);
-            transform: scale(1.05);
-        }
+            .option:hover {
+                background: rgba(255,255,255,0.3);
+                border-color: rgba(255,255,255,0.8);
+                transform: scale(1.05);
+            }
 
-        .option.correct {
-            background: #48bb78;
-            border-color: #48bb78;
-            animation: pulse 0.5s;
-        }
+            .option.correct {
+                background: #48bb78;
+                border-color: #48bb78;
+                animation: pulse 0.5s;
+            }
 
-        .option.incorrect {
-            background: #f56565;
-            border-color: #f56565;
-            animation: shake 0.5s;
-        }
+            .option.incorrect {
+                background: #f56565;
+                border-color: #f56565;
+                animation: shake 0.5s;
+            }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+            0%, 100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
         }
 
         .controls {
@@ -183,14 +212,14 @@
             transition: all 0.3s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
-        }
+            .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+            }
 
-        .btn:active {
-            transform: translateY(0);
-        }
+            .btn:active {
+                transform: translateY(0);
+            }
 
         .progress-bar {
             background: #e2e8f0;
@@ -219,22 +248,22 @@
             transition: all 0.3s ease;
         }
 
-        .result-message.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+            .result-message.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-        .result-message.correct {
-            background: #c6f6d5;
-            color: #2f855a;
-            border: 2px solid #48bb78;
-        }
+            .result-message.correct {
+                background: #c6f6d5;
+                color: #2f855a;
+                border: 2px solid #48bb78;
+            }
 
-        .result-message.incorrect {
-            background: #fed7d7;
-            color: #c53030;
-            border: 2px solid #f56565;
-        }
+            .result-message.incorrect {
+                background: #fed7d7;
+                color: #c53030;
+                border: 2px solid #f56565;
+            }
 
         .game-over {
             text-align: center;
@@ -252,11 +281,11 @@
             .options {
                 grid-template-columns: 1fr;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
-            
+
             .score-board {
                 flex-direction: column;
                 gap: 15px;
@@ -272,14 +301,27 @@
         }
 
         @keyframes chase {
-            0% { right: -100px; }
-            50% { right: 50%; }
-            100% { right: -100px; }
+            0% {
+                right: -100px;
+            }
+
+            50% {
+                right: 50%;
+            }
+
+            100% {
+                right: -100px;
+            }
         }
     </style>
 </head>
 <body>
+    
+
     <div class="game-container">
+        <div class="logo-container">
+            <img src="logo-1.png" alt="Logo" class="logo">
+        </div>
         <div class="content">
             <h1>🎓 משחק הצ'ייסר האקדמי</h1>
             <p class="subtitle">בדקו את הידע שלכם במושגים אקדמיים!</p>
@@ -308,7 +350,7 @@
                     <div class="question" id="question-text">לחצו "התחל משחק" כדי להתחיל!</div>
                     <div class="options" id="options-container" style="display: none;"></div>
                 </div>
-                
+
                 <div class="result-message" id="result-message"></div>
             </div>
 
@@ -320,209 +362,209 @@
         </div>
     </div>
 
-    <script>
-        const questions = [
-            {
-                question: "מה זו תעודת הסמכה?",
-                options: ["מסמך המעיד על הכשרה והעמידה בדרישות בתחום מסוים", "תואר אקדמי", "דיפלומה", "נקודות זכות"],
-                correct: 0
-            },
-            {
-                question: "מה זו דיפלומה במערכת מה\"ט?",
-                options: ["תואר אקדמי", "תעודה לסיום לימודי הנדסאים", "תעודת הוראה", "תעודת רישוי"],
-                correct: 1
-            },
-            {
-                question: "מה זה תואר?",
-                options: ["מוסד להשכלה", "חוג באוניברסיטה", "תעודה אקדמית שמוענקת לסטודנטים שהשלימו תכנית לימודים", "נקודות זכות"],
-                correct: 2
-            },
-            {
-                question: "מה פירוש הקיצור מל\"ג?",
-                options: ["מכון לטכנולוגיה", "מכללה להנדסה", "מכון למחקר", "מועצה להשכלה גבוהה"],
-                correct: 3
-            },
-            {
-                question: "על מה אחראי מה\"ט?",
-                options: ["מערך המכללות הטכנולוגיות", "אוניברסיטאות", "חוגים אקדמיים", "תוארי דוקטור"],
-                correct: 0
-            },
-            {
-                question: "מה זו מכינה?",
-                options: ["פקולטה באוניברסיטה", "תוכנית לימודים המכינה לתואר אקדמי או לימודי הנדסאים", "תעודת הסמכה", "סמסטר לימודים"],
-                correct: 1
-            },
-            {
-                question: "כמה זמן אורך סמסטר?",
-                options: ["10-12 שבועות", "16-18 שבועות", "13-15 שבועות", "20-22 שבועות"],
-                correct: 2
-            },
-            {
-                question: "מה הן נקודות זכות?",
-                options: ["ציון במבחן", "תעודה אקדמית", "שכר לימוד", "נקודות הניתנות לסטודנט בסיום קורס"],
-                correct: 3
-            },
-            {
-                question: "מה זה פרויקט גמר?",
-                options: ["עבודה מעמיקה לקבלת תואר הנדסאי/טכנאי", "מבחן סופי", "תעודת הסמכה", "סמסטר לימודים"],
-                correct: 0
-            },
-            {
-                question: "מהי פקולטה?",
-                options: ["חוג בודד באוניברסיטה", "יחידה העוסקת במחקר ובהוראה המאגדת כמה חוגים", "תעודה אקדמית", "משרד מנהלי"],
-                correct: 1
-            },
-            {
-                question: "מה זה חוג?",
-                options: ["פקולטה גדולה", "מוסד להשכלה גבוהה", "תחום ידע מתוך הפקולטה", "תואר אקדמי"],
-                correct: 2
-            },
-            {
-                question: "מה המשמעות של דיקנט?",
-                options: ["תואר אקדמי", "חוג באוניברסיטה", "תעודה של מה\"ט", "משרד או יחידה מנהלית באוניברסיטה"],
-                correct: 3
-            }
-        ];
-
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let timeLeft = 30;
-        let timer;
-        let gameActive = false;
-
-        function startGame() {
-            gameActive = true;
-            currentQuestionIndex = 0;
-            score = 0;
-            timeLeft = 30;
-            
-            document.getElementById('start-btn').style.display = 'none';
-            document.getElementById('next-btn').style.display = 'none';
-            document.getElementById('restart-btn').style.display = 'none';
-            document.getElementById('result-message').className = 'result-message';
-            
-            updateDisplay();
-            showQuestion();
-            startTimer();
-        }
-
-        function showQuestion() {
-            if (currentQuestionIndex >= questions.length) {
-                endGame();
-                return;
-            }
-
-            const questionData = questions[currentQuestionIndex];
-            document.getElementById('question-text').textContent = questionData.question;
-            
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.style.display = 'grid';
-            optionsContainer.innerHTML = '';
-            
-            questionData.options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.className = 'option';
-                button.textContent = option;
-                button.onclick = () => selectAnswer(index);
-                optionsContainer.appendChild(button);
-            });
-
-            // Reset timer for new question
-            timeLeft = 30;
-            updateDisplay();
-        }
-
-        function selectAnswer(selectedIndex) {
-            if (!gameActive) return;
-
-            clearInterval(timer);
-            const questionData = questions[currentQuestionIndex];
-            const options = document.querySelectorAll('.option');
-            const resultMessage = document.getElementById('result-message');
-
-            options.forEach((option, index) => {
-                option.onclick = null;
-                if (index === questionData.correct) {
-                    option.classList.add('correct');
-                } else if (index === selectedIndex) {
-                    option.classList.add('incorrect');
+        <script>
+            const questions = [
+                {
+                    question: "מה זו תעודת הסמכה?",
+                    options: ["מסמך המעיד על הכשרה והעמידה בדרישות בתחום מסוים", "תואר אקדמי", "דיפלומה", "נקודות זכות"],
+                    correct: 0
+                },
+                {
+                    question: "מה זו דיפלומה במערכת מה\"ט?",
+                    options: ["תואר אקדמי", "תעודה לסיום לימודי הנדסאים", "תעודת הוראה", "תעודת רישוי"],
+                    correct: 1
+                },
+                {
+                    question: "מה זה תואר?",
+                    options: ["מוסד להשכלה", "חוג באוניברסיטה", "תעודה אקדמית שמוענקת לסטודנטים שהשלימו תכנית לימודים", "נקודות זכות"],
+                    correct: 2
+                },
+                {
+                    question: "מה פירוש הקיצור מל\"ג?",
+                    options: ["מכון לטכנולוגיה", "מכללה להנדסה", "מכון למחקר", "מועצה להשכלה גבוהה"],
+                    correct: 3
+                },
+                {
+                    question: "על מה אחראי מה\"ט?",
+                    options: ["מערך המכללות הטכנולוגיות", "אוניברסיטאות", "חוגים אקדמיים", "תוארי דוקטור"],
+                    correct: 0
+                },
+                {
+                    question: "מה זו מכינה?",
+                    options: ["פקולטה באוניברסיטה", "תוכנית לימודים המכינה לתואר אקדמי או לימודי הנדסאים", "תעודת הסמכה", "סמסטר לימודים"],
+                    correct: 1
+                },
+                {
+                    question: "כמה זמן אורך סמסטר?",
+                    options: ["10-12 שבועות", "16-18 שבועות", "13-15 שבועות", "20-22 שבועות"],
+                    correct: 2
+                },
+                {
+                    question: "מה הן נקודות זכות?",
+                    options: ["ציון במבחן", "תעודה אקדמית", "שכר לימוד", "נקודות הניתנות לסטודנט בסיום קורס"],
+                    correct: 3
+                },
+                {
+                    question: "מה זה פרויקט גמר?",
+                    options: ["עבודה מעמיקה לקבלת תואר הנדסאי/טכנאי", "מבחן סופי", "תעודת הסמכה", "סמסטר לימודים"],
+                    correct: 0
+                },
+                {
+                    question: "מהי פקולטה?",
+                    options: ["חוג בודד באוניברסיטה", "יחידה העוסקת במחקר ובהוראה המאגדת כמה חוגים", "תעודה אקדמית", "משרד מנהלי"],
+                    correct: 1
+                },
+                {
+                    question: "מה זה חוג?",
+                    options: ["פקולטה גדולה", "מוסד להשכלה גבוהה", "תחום ידע מתוך הפקולטה", "תואר אקדמי"],
+                    correct: 2
+                },
+                {
+                    question: "מה המשמעות של דיקנט?",
+                    options: ["תואר אקדמי", "חוג באוניברסיטה", "תעודה של מה\"ט", "משרד או יחידה מנהלית באוניברסיטה"],
+                    correct: 3
                 }
-            });
+            ];
 
-            if (selectedIndex === questionData.correct) {
-                score += Math.max(10, timeLeft);
-                resultMessage.textContent = `נכון! 🎉 קיבלתם ${Math.max(10, timeLeft)} נקודות`;
-                resultMessage.className = 'result-message correct show';
-                
-                // Add chaser animation for correct answer
-                const chaser = document.createElement('div');
-                chaser.innerHTML = '🏃‍♂️';
-                chaser.className = 'chaser-animation';
-                document.querySelector('.game-container').appendChild(chaser);
-                setTimeout(() => chaser.remove(), 3000);
-            } else {
-                resultMessage.textContent = `לא נכון 😞 התשובה הנכונה היא: ${questionData.options[questionData.correct]}`;
-                resultMessage.className = 'result-message incorrect show';
-            }
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let timeLeft = 30;
+            let timer;
+            let gameActive = false;
 
-            updateDisplay();
-            document.getElementById('next-btn').style.display = 'inline-block';
-        }
+            function startGame() {
+                gameActive = true;
+                currentQuestionIndex = 0;
+                score = 0;
+                timeLeft = 30;
 
-        function nextQuestion() {
-            currentQuestionIndex++;
-            document.getElementById('next-btn').style.display = 'none';
-            document.getElementById('result-message').className = 'result-message';
-            
-            if (currentQuestionIndex >= questions.length) {
-                endGame();
-            } else {
+                document.getElementById('start-btn').style.display = 'none';
+                document.getElementById('next-btn').style.display = 'none';
+                document.getElementById('restart-btn').style.display = 'none';
+                document.getElementById('result-message').className = 'result-message';
+
+                updateDisplay();
                 showQuestion();
                 startTimer();
             }
-        }
 
-        function startTimer() {
-            timer = setInterval(() => {
-                timeLeft--;
-                updateDisplay();
-                
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    selectAnswer(-1); // Auto-select wrong answer when time runs out
+            function showQuestion() {
+                if (currentQuestionIndex >= questions.length) {
+                    endGame();
+                    return;
                 }
-            }, 1000);
-        }
 
-        function updateDisplay() {
-            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
-            document.getElementById('score').textContent = score;
-            document.getElementById('timer').textContent = timeLeft;
-            
-            const progress = ((currentQuestionIndex) / questions.length) * 100;
-            document.getElementById('progress').style.width = progress + '%';
-        }
+                const questionData = questions[currentQuestionIndex];
+                document.getElementById('question-text').textContent = questionData.question;
 
-        function endGame() {
-            gameActive = false;
-            clearInterval(timer);
-            
-            const gameArea = document.getElementById('game-area');
-            gameArea.innerHTML = `
-                <div class="game-over">
-                    <h2>🎊 המשחק הסתיים!</h2>
-                    <div class="final-score">${score}</div>
-                    <p>ענית על ${currentQuestionIndex} מתוך ${questions.length} שאלות</p>
-                    <p>${score >= questions.length * 15 ? 'ביצוע מעולה! 🌟' : score >= questions.length * 10 ? 'ביצוע טוב! 👍' : 'כדאי לחזור על החומר 📚'}</p>
-                </div>
-            `;
-            
-            document.getElementById('restart-btn').style.display = 'inline-block';
-        }
+                const optionsContainer = document.getElementById('options-container');
+                optionsContainer.style.display = 'grid';
+                optionsContainer.innerHTML = '';
 
-        function restartGame() {
-            location.reload();
-        }
-    </script>
+                questionData.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.className = 'option';
+                    button.textContent = option;
+                    button.onclick = () => selectAnswer(index);
+                    optionsContainer.appendChild(button);
+                });
+
+                // Reset timer for new question
+                timeLeft = 30;
+                updateDisplay();
+            }
+
+            function selectAnswer(selectedIndex) {
+                if (!gameActive) return;
+
+                clearInterval(timer);
+                const questionData = questions[currentQuestionIndex];
+                const options = document.querySelectorAll('.option');
+                const resultMessage = document.getElementById('result-message');
+
+                options.forEach((option, index) => {
+                    option.onclick = null;
+                    if (index === questionData.correct) {
+                        option.classList.add('correct');
+                    } else if (index === selectedIndex) {
+                        option.classList.add('incorrect');
+                    }
+                });
+
+                if (selectedIndex === questionData.correct) {
+                    score += Math.max(10, timeLeft);
+                    resultMessage.textContent = `נכון! 🎉 קיבלתם ${Math.max(10, timeLeft)} נקודות`;
+                    resultMessage.className = 'result-message correct show';
+
+                    // Add chaser animation for correct answer
+                    const chaser = document.createElement('div');
+                    chaser.innerHTML = '🏃‍♂️';
+                    chaser.className = 'chaser-animation';
+                    document.querySelector('.game-container').appendChild(chaser);
+                    setTimeout(() => chaser.remove(), 3000);
+                } else {
+                    resultMessage.textContent = `לא נכון 😞 התשובה הנכונה היא: ${questionData.options[questionData.correct]}`;
+                    resultMessage.className = 'result-message incorrect show';
+                }
+
+                updateDisplay();
+                document.getElementById('next-btn').style.display = 'inline-block';
+            }
+
+            function nextQuestion() {
+                currentQuestionIndex++;
+                document.getElementById('next-btn').style.display = 'none';
+                document.getElementById('result-message').className = 'result-message';
+
+                if (currentQuestionIndex >= questions.length) {
+                    endGame();
+                } else {
+                    showQuestion();
+                    startTimer();
+                }
+            }
+
+            function startTimer() {
+                timer = setInterval(() => {
+                    timeLeft--;
+                    updateDisplay();
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        selectAnswer(-1); // Auto-select wrong answer when time runs out
+                    }
+                }, 1000);
+            }
+
+            function updateDisplay() {
+                document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+                document.getElementById('score').textContent = score;
+                document.getElementById('timer').textContent = timeLeft;
+
+                const progress = ((currentQuestionIndex) / questions.length) * 100;
+                document.getElementById('progress').style.width = progress + '%';
+            }
+
+            function endGame() {
+                gameActive = false;
+                clearInterval(timer);
+
+                const gameArea = document.getElementById('game-area');
+                gameArea.innerHTML = `
+                            <div class="game-over">
+                                <h2>🎊 המשחק הסתיים!</h2>
+                                <div class="final-score">${score}</div>
+                                <p>ענית על ${currentQuestionIndex} מתוך ${questions.length} שאלות</p>
+                                <p>${score >= questions.length * 15 ? 'ביצוע מעולה! 🌟' : score >= questions.length * 10 ? 'ביצוע טוב! 👍' : 'כדאי לחזור על החומר 📚'}</p>
+                            </div>
+                        `;
+
+                document.getElementById('restart-btn').style.display = 'inline-block';
+            }
+
+            function restartGame() {
+                location.reload();
+            }
+        </script>
 </body>
 </html>
